@@ -36,6 +36,8 @@ Instead of a static text blog, we created a dynamic system where users can inter
 ```text
 📂 blog-mario-univers
  ┣ 📂 assets
+ ┃ ┣ 📂 fonts
+ ┃ ┃ ┗ 📄 SuperMario256.tt_f
  ┃ ┣ 📄 diff-scene-1-CKyuG_6W.jpg
  ┃ ┣ 📄 diff-scene-1-mod-BZvgwxdn.jpg
  ┃ ┣ 📄 diff-scene-2-mod-C3r8dJei.jpg
@@ -44,9 +46,12 @@ Instead of a static text blog, we created a dynamic system where users can inter
  ┃ ┣ 📄 diff-scene-3-mod-BzXrKVz0.jpg
  ┃ ┣ 📄 diff-scene-4-5418mqE6.jpg
  ┃ ┣ 📄 diff-scene-4-mod-BWaD_RrF.jpg
+ ┃ ┣ 📄 encuentra_las_diferencias_solucion.png
+ ┃ ┣ 📄 encunetra_la_diferencia_mario.png
+ ┃ ┣ 📄 fondo_blog.png
  ┃ ┗ 📄 mario-banner-B8vN95hX.jpg
  ┣ 📂 css
- ┃ ┗ 📄 style.css                    # Main styles for the blog layout
+ ┃ ┗ 📄 style.css
  ┣ 📂 iconos
  ┃ ┣ 🎬 bomba especial.mp4
  ┃ ┣ 📷 caparazon.png
@@ -60,8 +65,19 @@ Instead of a static text blog, we created a dynamic system where users can inter
  ┃ ┣ 📷 moneda.png
  ┃ ┣ 📷 planta.png
  ┃ ┗ 🎬 tablero.mp4
+ ┣ 📂 imagenes_edit
+ ┃ ┣ 📷 daniel_post2.png
+ ┃ ┣ 📷 daniel_post3.png
+ ┃ ┣ 📷 j_osep_post2.png
+ ┃ ┣ 📷 j_osep_post3.png
+ ┃ ┣ 📷 marc_post2.png
+ ┃ ┗ 📷 marc_post3.png
  ┣ 📂 js
- ┃ ┗ 📄 blog-games-logic.js          # Core JavaScript for interactive features
+ ┃ ┣ 📄 error-handler.js
+ ┃ ┗ 📄 main.js
+ ┣ 📂 scratch
+ ┃ ┗ 📄 grid.html
  ┣ 📂 video
  ┃ ┗ 🎬 Students and blog introduction.mp4
- ┗ 📄 index.html                     # Main page and entry point of the blog
+ ┣ 📄 index.html
+ ┗ 📄 README.md
