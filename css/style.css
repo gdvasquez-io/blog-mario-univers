@@ -1,4 +1,4 @@
-﻿*,
+*,
     :before,
     :after {
       --tw-border-spacing-x: 0;
@@ -445,17 +445,28 @@ hsl(var(--mario-red) / 0.05));
       border-color: hsl(var(--border));
     }
 
+    @font-face {
+      font-family: "Super Mario 256";
+      src: url("../assets/fonts/SuperMario256.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
     body {
+      background-image: url("../assets/fondo_blog.png");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
       background-color: hsl(var(--background));
       color: hsl(var(--foreground));
-      font-family: Nunito, system-ui, sans-serif;
+      font-family: "Super Mario 256", Nunito, system-ui, sans-serif;
     }
 
     h1,
     h2,
     h3,
     h4 {
-      font-family: Fredoka, Nunito, sans-serif;
+      font-family: "Super Mario 256", Fredoka, Nunito, sans-serif;
       letter-spacing: -0.025em;
     }
 
@@ -4447,15 +4458,15 @@ transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--
       position: absolute;
       z-index: 100;
       /* Perqu� es vegi per sobre de les icones */
-      height: 6px;
+      height: 5px;
       /* Gruix del l�ser */
-      background: linear-gradient(90deg, #fff, #ffe600);
+      background: linear-gradient(90deg, #ff0080, #ff4500, #ffcc00, #00ff88, #00cfff, #a855f7, #ff0080); background-size: 300% 100%;
       /* Color brillant groc d'estrella */
-      box-shadow: 0 0 15px #ffcc00, 0 0 5px #fff;
+      box-shadow: 0 0 8px 3px rgba(255,255,255,0.95), 0 0 18px 6px rgba(180,80,255,0.8), 0 0 35px 10px rgba(0,200,255,0.5);
       /* Efecte de llum ne� */
       transform-origin: left center;
       /* El l�ser neix des del punt d'origen */
-      animation: fade-laser 0.5s ease-out forwards;
+      animation: laser-rainbow 0.8s ease-out forwards;
       /* Dura mig segon i desapareix */
     }
 
@@ -4747,4 +4758,80 @@ overflow: hidden;
   border: 1px solid hsl(214, 31%, 88%);
   margin-top: 1.5rem;
   background: #000;
+}
+/* ── Bomb explosion particles ── */
+@keyframes bomb-particle {
+  0%   { transform: translate(0,0) scale(1.6); opacity: 1; }
+  70%  { opacity: 0.8; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+}
+@keyframes bomb-shockwave {
+  0%   { width: 10px; height: 10px; margin-left: -5px; margin-top: -5px; opacity: 1; border-width: 8px; }
+  100% { width: 350px; height: 350px; margin-left: -175px; margin-top: -175px; opacity: 0; border-width: 1px; }
+}
+@keyframes bomb-shockwave2 {
+  0%   { width: 10px; height: 10px; margin-left: -5px; margin-top: -5px; opacity: 0.7; border-width: 6px; }
+  100% { width: 220px; height: 220px; margin-left: -110px; margin-top: -110px; opacity: 0; border-width: 1px; }
+}
+@keyframes bomb-flash {
+  0%   { opacity: 1; transform: translate(-50%,-50%) scale(0.1); }
+  40%  { opacity: 0.85; transform: translate(-50%,-50%) scale(1.3); }
+  100% { opacity: 0; transform: translate(-50%,-50%) scale(2.2); }
+}
+.bomb-particle {
+  position: fixed; pointer-events: none; z-index: 9999;
+  font-size: 2rem; line-height: 1; transform-origin: center;
+  animation: bomb-particle 0.9s cubic-bezier(0.1,0.9,0.3,1) forwards;
+  will-change: transform, opacity;
+}
+.bomb-shockwave {
+  position: fixed; border-radius: 50%;
+  border: 8px solid #FF6B00;
+  background: radial-gradient(circle, rgba(255,200,0,0.3) 0%, rgba(255,107,0,0.08) 60%, transparent 100%);
+  pointer-events: none; z-index: 9998;
+  animation: bomb-shockwave 0.7s ease-out forwards;
+}
+.bomb-shockwave2 {
+  position: fixed; border-radius: 50%;
+  border: 5px solid #FFD700;
+  pointer-events: none; z-index: 9997;
+  animation: bomb-shockwave2 0.5s ease-out 0.1s forwards;
+}
+.bomb-flash {
+  position: fixed; pointer-events: none; z-index: 9996;
+  width: 250px; height: 250px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,180,1) 0%, rgba(255,200,0,0.85) 30%, rgba(255,100,0,0.5) 60%, transparent 80%);
+  animation: bomb-flash 0.5s ease-out forwards;
+}
+
+/* ── Rainbow laser keyframe ── */
+@keyframes laser-rainbow {
+  0%   { transform: scaleX(0); opacity: 1; background-position: 0% 50%; filter: brightness(2); }
+  30%  { transform: scaleX(1); opacity: 1; background-position: 100% 50%; filter: brightness(1.5); }
+  65%  { transform: scaleX(1); opacity: 0.85; }
+  100% { transform: scaleX(1); opacity: 0; filter: brightness(1); }
+}
+@keyframes laser-hit-burst {
+  0%   { transform: scale(0); opacity: 1; }
+  60%  { transform: scale(1.6); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+.laser-hit {
+  position: fixed; pointer-events: none; z-index: 9996;
+  width: 40px; height: 40px; border-radius: 50%; margin-left: -20px; margin-top: -20px;
+  background: radial-gradient(circle, #fff 0%, #ffcc00 30%, #ff4500 60%, transparent 80%);
+  box-shadow: 0 0 15px 5px rgba(255,200,0,0.9), 0 0 30px 10px rgba(255,80,0,0.5);
+  animation: laser-hit-burst 0.4s ease-out forwards;
+}
+
+.bg-card {
+  background-color: hsl(var(--card) / 0.85) !important;
+  backdrop-filter: blur(8px);
+}
+
+.mario-panel {
+  background:
+    repeating-linear-gradient(0deg, rgba(139, 90, 0, 0.05) 0 2px, transparent 2px 6px),
+    linear-gradient(180deg, rgba(255, 246, 221, 0.85), rgba(244, 224, 166, 0.85)) !important;
+  backdrop-filter: blur(8px);
 }

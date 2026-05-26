@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { margin: 0; padding: 0; background: #333; }
+  .container { position: relative; width: 100vw; height: auto; }
+  img { width: 100%; display: block; }
+  .grid {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+  }
+  .cell { border: 1px solid rgba(255,255,0,0.5); position: relative; }
+  .cell::after {
+    content: attr(data-coord);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: yellow;
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <img src="../assets/encuentra_las_diferencias_solucion.png">
+    <div class="grid" id="grid"></div>
+  </div>
+  <script>
+    const grid = document.getElementById('grid');
+    for (let y = 0; y < 10; y++) {
+      for (let x = 0; x < 10; x++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.setAttribute('data-coord', `${x*10+5},${y*10+5}`);
+        grid.appendChild(cell);
+      }
+    }
+  </script>
+</body>
+</html>
