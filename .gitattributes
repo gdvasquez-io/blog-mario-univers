@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Marca los JS como código generado — excluidos de estadísticas de GitHub
+js/main.js linguist-generated=true
+js/error-handler.js linguist-generated=true

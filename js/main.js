@@ -17868,7 +17868,7 @@ children: g.jsxs(dE, {
           minLen: 4,
           maxLen: 10,
           reward: 100,
-          unlockCost: 30,
+          unlockCost: 100,
           accent: "bg-purple-600",
         },
         {
@@ -17881,7 +17881,7 @@ children: g.jsxs(dE, {
           minLen: 4,
           maxLen: 12,
           reward: 250,
-          unlockCost: 60,
+          unlockCost: 200,
           accent: "bg-pink-600",
         },
         {
@@ -17894,7 +17894,7 @@ children: g.jsxs(dE, {
           minLen: 4,
           maxLen: 14,
           reward: 500,
-          unlockCost: 90,
+          unlockCost: 500,
           accent: "bg-amber-500",
         },
       ],
@@ -19810,7 +19810,7 @@ children:
             children: [
               g.jsx(H1, {}),
               g.jsx(ew, {}),
-              g.jsx(Ex, { basename: "/blog-mario-univers",
+              g.jsx(Ex, { basename: location.hostname === "gdvasquez-io.github.io" ? "/blog-mario-univers" : "",
                 children: g.jsxs(xx, {
                   children: [
                     g.jsx(Ya, { path: "/", element: g.jsx(nb, {}) }),
