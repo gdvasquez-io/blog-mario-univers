@@ -19810,7 +19810,7 @@ children:
             children: [
               g.jsx(H1, {}),
               g.jsx(ew, {}),
-              g.jsx(Ex, {
+              g.jsx(Ex, { basename: "/blog-mario-univers",
                 children: g.jsxs(xx, {
                   children: [
                     g.jsx(Ya, { path: "/", element: g.jsx(nb, {}) }),

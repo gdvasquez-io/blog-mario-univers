@@ -21,7 +21,14 @@
 <body>
   
   <div id="root"></div>
-  <script>if(location.pathname==="/index.html")history.replaceState(null,"","/"+location.search+location.hash);</script>
+  <script>
+    (function(){
+      var base = location.hostname === "gdvasquez-io.github.io" ? "/blog-mario-univers" : "";
+      if(location.pathname === base + "/index.html"){
+        history.replaceState(null, "", base + "/" + location.search + location.hash);
+      }
+    })();
+  </script>
   <script src="js/error-handler.js"></script>
   <script src="js/main.js"></script>
 
