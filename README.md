@@ -1,6 +1,6 @@
 # Mario Universe Blog Project
 
-This website is a blog dedicated to the Super Mario universe. It has been created completely from scratch by **Marc Duran**, **Josep Sancho**, and me. We designed and coded everything without templates, using basic web development tools to create a fun, interactive, and modern space for Mario fans.
+This website is a blog dedicated to the Super Mario universe. It has been created completely from scratch by **Marc Durán**, **Josep Sancho**, and me. We designed and coded everything without templates, using basic web development tools to create a fun, interactive, and modern space for Mario fans.
 
 The main page works as a blog hub, and the site includes special interactive mini-games and multimedia content to make the user experience more entertaining.
 
