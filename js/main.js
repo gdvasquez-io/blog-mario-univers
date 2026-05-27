@@ -17978,7 +17978,7 @@ function FE(e, t, n) {
   for (let c = 0; c < u; c++) d.push({ r: e.r + r * c, c: e.c + o * c });
   return d;
 }
-const _g = "mario_points",
+const _g = "mario_word_points",
   jg = "mario_unlocked";
 function zE() {
   try {
@@ -18472,7 +18472,7 @@ const BE = () => {
     },
   },
   qE = () => {
-    const [pts, setPts] = w.useState(() => zE()),
+    const [pts, setPts] = w.useState(() => { try { return Number(localStorage.getItem("mario_diff_points")) || 0; } catch { return 0; } }),
       [unlocked, setUnlocked] = w.useState(() => {
         try { return JSON.parse(localStorage.getItem("mario_diff_unlocked") || '["easy", "medium"]'); } catch { return ["easy", "medium"]; }
       }),
@@ -18510,7 +18510,7 @@ const BE = () => {
       if (a && e) {
         setPts(p => {
           const np = p + (Yl[e].reward || 0);
-          localStorage.setItem("mario_points", String(np));
+          localStorage.setItem("mario_diff_points", String(np));
           return np;
         });
       }
@@ -18560,7 +18560,7 @@ const BE = () => {
                         if (canAfford) {
                           setPts(p => {
                             const np = p - conf.unlockCost;
-                            localStorage.setItem("mario_points", String(np));
+                            localStorage.setItem("mario_diff_points", String(np));
                             return np;
                           });
                           setUnlocked(prev => [...prev, c]);
@@ -18668,19 +18668,18 @@ const BE = () => {
                       return g.jsx(
                         "span",
                         {
-
                           className:
-                            "absolute pointer-events-none rounded-full border-4 border-[#32CD32] bg-[#32CD32]/20 grid place-items-center",
+                            "absolute pointer-events-none rounded-full border-[3px] border-[#32CD32] bg-[#32CD32]/30 grid place-items-center shadow-[0_0_12px_rgba(50,205,50,0.5)] transition-all duration-300",
                           style: {
-                            left: `${c.x}%`,
-                            top: `${c.y}%`,
+                            left: `${h.x}%`,
+                            top: `${h.y}%`,
                             width: l.ringSize,
                             height: l.ringSize,
                             transform: "translate(-50%, -50%)",
                           },
                           children: g.jsx(o1, {
-                            className: "w-6 h-6 text-[#32CD32]",
-                            strokeWidth: 4,
+                            className: "w-[60%] h-[60%] text-[#32CD32] drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]",
+                            strokeWidth: 3,
                           }),
                         },
                         `f-${c.index}`,
@@ -18850,7 +18849,7 @@ function kf(e) {
 }
 const cn = (e) => new Promise((t) => setTimeout(t, e)),
   tb = () => {
-    const [pts, setPts] = w.useState(() => zE()),
+    const [pts, setPts] = w.useState(() => { try { return Number(localStorage.getItem("mario_crush_points")) || 0; } catch { return 0; } }),
       [unlocked, setUnlocked] = w.useState(() => {
         try { return JSON.parse(localStorage.getItem("mario_crush_unlocked") || '["easy", "medium"]'); } catch { return ["easy", "medium"]; }
       }),
@@ -18893,7 +18892,7 @@ const cn = (e) => new Promise((t) => setTimeout(t, e)),
       if (y && y.won && e) {
         setPts(p => {
           const np = p + (xr[e].reward || 0);
-          localStorage.setItem("mario_points", String(np));
+          localStorage.setItem("mario_crush_points", String(np));
           return np;
         });
       }
@@ -19176,7 +19175,7 @@ const cn = (e) => new Promise((t) => setTimeout(t, e)),
                         if (canAfford) {
                           setPts(p => {
                             const np = p - conf.unlockCost;
-                            localStorage.setItem("mario_points", String(np));
+                            localStorage.setItem("mario_crush_points", String(np));
                             return np;
                           });
                           setUnlocked(prev => [...prev, O]);
