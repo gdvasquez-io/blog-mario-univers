@@ -17979,7 +17979,7 @@ function FE(e, t, n) {
   return d;
 }
 const _g = "mario_word_points",
-  jg = "mario_unlocked";
+  jg = "mario_word_unlocked_v2";
 function zE() {
   try {
     return Number(localStorage.getItem(_g)) || 0;
@@ -18474,7 +18474,7 @@ const BE = () => {
   qE = () => {
     const [pts, setPts] = w.useState(() => { try { return Number(localStorage.getItem("mario_diff_points")) || 0; } catch { return 0; } }),
       [unlocked, setUnlocked] = w.useState(() => {
-        try { return JSON.parse(localStorage.getItem("mario_diff_unlocked") || '["easy", "medium"]'); } catch { return ["easy", "medium"]; }
+        try { return JSON.parse(localStorage.getItem("mario_diff_unlocked_v2") || '["easy", "medium"]'); } catch { return ["easy", "medium"]; }
       }),
       [e, t] = w.useState(null),
       [n, r] = w.useState([]),
@@ -18504,7 +18504,7 @@ const BE = () => {
         }
       };
     w.useEffect(() => {
-      localStorage.setItem("mario_diff_unlocked", JSON.stringify(unlocked));
+      localStorage.setItem("mario_diff_unlocked_v2", JSON.stringify(unlocked));
     }, [unlocked]);
     w.useEffect(() => {
       if (a && e) {
@@ -18851,7 +18851,7 @@ const cn = (e) => new Promise((t) => setTimeout(t, e)),
   tb = () => {
     const [pts, setPts] = w.useState(() => { try { return Number(localStorage.getItem("mario_crush_points")) || 0; } catch { return 0; } }),
       [unlocked, setUnlocked] = w.useState(() => {
-        try { return JSON.parse(localStorage.getItem("mario_crush_unlocked") || '["easy", "medium"]'); } catch { return ["easy", "medium"]; }
+        try { return JSON.parse(localStorage.getItem("mario_crush_unlocked_v2") || '["easy", "medium"]'); } catch { return ["easy", "medium"]; }
       }),
       [e, t] = w.useState(null),
       n = e ? xr[e] : xr.easy,
@@ -18883,7 +18883,7 @@ const cn = (e) => new Promise((t) => setTimeout(t, e)),
           (m.current = null));
       }, []);
     w.useEffect(() => {
-      localStorage.setItem("mario_crush_unlocked", JSON.stringify(unlocked));
+      localStorage.setItem("mario_crush_unlocked_v2", JSON.stringify(unlocked));
     }, [unlocked]);
     w.useEffect(() => {
       if (e) b(e);
