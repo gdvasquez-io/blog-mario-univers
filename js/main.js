@@ -18466,8 +18466,8 @@ const BE = () => {
         { x: 65, y: 45, radiusX: 6, radiusY: 6 }, // Cubo ? gris
         { x: 75, y: 45, radiusX: 6, radiusY: 6 }, // Cubo agrietado
         { x: 95, y: 65, radiusX: 6, radiusY: 6 }, // Planta carnivora desaparecida
-        { x: 65, y: 5,  radiusX: 6, radiusY: 6 }, // Bandera negra
-        { x: 85, y: 5,  radiusX: 6, radiusY: 6 }, // Moneda faltante
+        { x: 65, y: 5, radiusX: 6, radiusY: 6 }, // Bandera negra
+        { x: 85, y: 5, radiusX: 6, radiusY: 6 }, // Moneda faltante
       ],
     },
   },
@@ -18758,7 +18758,7 @@ const xr = {
     moves: 30,
     types: 7,
     goals: 3,
-    goalCount: 30,
+    goalCount: 20,
     goalCounts: [20, 20, 20],
     label: "Medium",
     emoji: "🪙",
@@ -18770,7 +18770,7 @@ const xr = {
     moves: 20,
     types: 7,
     goals: 5,
-    goalCount: 30,
+    goalCount: 20,
     label: "Hard",
     emoji: "⭐",
     accent: "bg-orange-500",
@@ -18782,7 +18782,7 @@ const xr = {
     moves: 15,
     types: 8,
     goals: 6,
-    goalCount: 25,
+    goalCount: 15,
     label: "Impossible",
     emoji: "💀",
     accent: "bg-purple-600",
@@ -19100,10 +19100,36 @@ const cn = (e) => new Promise((t) => setTimeout(t, e)),
       }, [f, y, P]);
     w.useEffect(() => {
       if (y || f || l.length === 0) return;
+      const hasMoves = () => {
+        for (let row = 0; row < oe; row++) {
+          for (let col = 0; col < oe; col++) {
+            if (r[row][col].special === "rainbow") return !0;
+            if (col < oe - 1) {
+              const tmp = r[row][col];
+              r[row][col] = r[row][col + 1];
+              r[row][col + 1] = tmp;
+              const m = kf(r).cells.size > 0;
+              r[row][col + 1] = r[row][col];
+              r[row][col] = tmp;
+              if (m) return !0;
+            }
+            if (row < oe - 1) {
+              const tmp = r[row][col];
+              r[row][col] = r[row + 1][col];
+              r[row + 1][col] = tmp;
+              const m = kf(r).cells.size > 0;
+              r[row + 1][col] = r[row][col];
+              r[row][col] = tmp;
+              if (m) return !0;
+            }
+          }
+        }
+        return !1;
+      };
       l.every((L, idx) => (u[L] ?? 0) >= _gc(idx))
         ? x({ won: !0, pct: 100 })
-        : s <= 0 && x({ won: !1, pct: E });
-    }, [s, u, l, n.goalCount, n.goalCounts, y, f, E]);
+        : s <= 0 ? x({ won: !1, pct: E }) : (!hasMoves() && x({ won: !1, pct: E, noMoves: !0 }));
+    }, [s, u, l, n.goalCount, n.goalCounts, y, f, E, r]);
     const B = s <= 5;
     return !e ? g.jsxs("div", {
       className: "relative mario-panel p-5 md:p-8 overflow-hidden my-10 max-w-5xl mx-auto",
@@ -19409,6 +19435,10 @@ const cn = (e) => new Promise((t) => setTimeout(t, e)),
               g.jsx("h4", {
                 className: "font-pixel text-xl mb-3",
                 children: y.won ? "VICTORY!" : "GAME OVER",
+              }),
+              y.noMoves && g.jsx("p", {
+                className: "font-pixel text-[10px] mb-2 text-red-600",
+                children: "No more possible moves",
               }),
               g.jsxs("p", {
                 className: "font-pixel text-xs mb-4",
