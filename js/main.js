@@ -18671,8 +18671,8 @@ const BE = () => {
                           className:
                             "absolute pointer-events-none rounded-full border-[3px] border-[#32CD32] bg-[#32CD32]/30 grid place-items-center shadow-[0_0_12px_rgba(50,205,50,0.5)] transition-all duration-300",
                           style: {
-                            left: `${c.x}%`,
-                            top: `${c.y}%`,
+                            left: `${h.x}%`,
+                            top: `${h.y}%`,
                             width: l.ringSize,
                             height: l.ringSize,
                             transform: "translate(-50%, -50%)",
