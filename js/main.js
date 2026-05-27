@@ -18397,11 +18397,11 @@ const BE = () => {
     "" +
     "./assets/diff-scene-4-mod-BWaD_RrF.jpg",
   Yl = {
-    easy: { label: "Easy", emoji: "🍄", accent: "bg-red-500", hitScale: 2.8, ringSize: 62, reward: 30, count: 5 },
-    medium: { label: "Medium", emoji: "🪙", accent: "bg-yellow-500", hitScale: 2.55, ringSize: 52, reward: 50, count: 5 },
-    hard: { label: "Hard", emoji: "⭐", accent: "bg-orange-500", hitScale: 2.4, ringSize: 44, reward: 100, unlockCost: 100, count: 5 },
-    impossible: { label: "Impossible", emoji: "💀", accent: "bg-purple-600", hitScale: 2.25, ringSize: 38, reward: 200, unlockCost: 200, count: 5 },
-    impossible2: { label: "Impossible 2", emoji: "☠️", accent: "bg-fuchsia-700", hitScale: 2.25, ringSize: 38, reward: 300, unlockCost: 400, count: 11 },
+    easy: { label: "Easy", emoji: "🍄", accent: "bg-red-500", hitScale: 1.2, ringSize: 62, reward: 30, count: 5 },
+    medium: { label: "Medium", emoji: "🪙", accent: "bg-yellow-500", hitScale: 1.1, ringSize: 52, reward: 50, count: 5 },
+    hard: { label: "Hard", emoji: "⭐", accent: "bg-orange-500", hitScale: 1.0, ringSize: 44, reward: 100, unlockCost: 100, count: 5 },
+    impossible: { label: "Impossible", emoji: "💀", accent: "bg-purple-600", hitScale: 1.0, ringSize: 38, reward: 200, unlockCost: 200, count: 5 },
+    impossible2: { label: "Impossible 2", emoji: "☠️", accent: "bg-fuchsia-700", hitScale: 1.0, ringSize: 38, reward: 300, unlockCost: 400, count: 11 },
   },
   XE = {
     easy: {
@@ -18671,8 +18671,8 @@ const BE = () => {
                           className:
                             "absolute pointer-events-none rounded-full border-[3px] border-[#32CD32] bg-[#32CD32]/30 grid place-items-center shadow-[0_0_12px_rgba(50,205,50,0.5)] transition-all duration-300",
                           style: {
-                            left: `${h.x}%`,
-                            top: `${h.y}%`,
+                            left: `${c.x}%`,
+                            top: `${c.y}%`,
                             width: l.ringSize,
                             height: l.ringSize,
                             transform: "translate(-50%, -50%)",
